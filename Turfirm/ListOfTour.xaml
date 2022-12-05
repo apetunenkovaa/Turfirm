@@ -7,24 +7,28 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfTour">
-
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="Image\picture.png"/>
+    </Page.Resources>
     <Grid>
 
         <StackPanel>
             <StackPanel>
-                
-                <GroupBox Header="Введите имя для поиска">
-                    <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="35" FontSize="18"></TextBox>
-                </GroupBox>
-                <CheckBox Name="cbPhoto" Checked="cbPhoto_Checked" Unchecked="cbPhoto_Checked">Только с фото</CheckBox>
-                <ComboBox Name="cmbSort" SelectionChanged="cmbBreed_SelectionChanged">
-                    <ComboBoxItem>Без сортировки</ComboBoxItem>
-                    <ComboBoxItem>По имени от A до Я</ComboBoxItem>
-                    <ComboBoxItem>По имени от Я до А</ComboBoxItem>
+                <StackPanel>
+                    <TextBlock>Введите текст для поиска:</TextBlock>
+                    <GroupBox>
+                        <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"></TextBox>
+                    </GroupBox>
+                </StackPanel>
+                <TextBlock>Выберете тип:</TextBlock>
+                <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
+                    <ComboBoxItem>Все типы</ComboBoxItem>
                 </ComboBox>
+                <CheckBox Name="cbPhoto" Checked="cbPhoto_Checked" Unchecked="cbPhoto_Checked">Только актуальные туры</CheckBox>
+                
             </StackPanel>
 
-            <ListView Name="listCat" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="500">
+            <ListView Name="listTour" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="500">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel HorizontalAlignment="Center"></WrapPanel>
@@ -32,14 +36,12 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="Aquamarine">
+                        <Border Padding="5" CornerRadius="5" BorderThickness="1">
                             <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding NameBreed}"/>
+                                <StackPanel Background="White">
+                                    <TextBlock Text="{Binding }"/>
                                     <TextBlock Text="{Binding PassportTable.UniqueNumber, StringFormat=Паспорт: {0}}"></TextBlock>
-                                    <TextBlock Text="{Binding Birthday, ConverterCulture=ru, StringFormat={}dd MMMM yyyy года}"/>
-
-                                    <TextBlock Name="tbGender" Text="{Binding GenderTable.Gender}"></TextBlock>
+                                   
                                     <TextBlock Width="490" TextWrapping="Wrap" Name="tbCharacter" Uid="{Binding idCat}"  Loaded="tbCharacter_Loaded"></TextBlock>
                                     <TextBlock Uid="{Binding idCat}" Name="tbMoney" Loaded="tbMoney_Loaded"></TextBlock>
                                     <Image Width="100" Height="100" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"/>
@@ -52,7 +54,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <!--<Button HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Name="btnCreateCat" Click="btnCreateCat_Click">Добавить кота</Button>-->
-
     </Grid>
 </Page>
