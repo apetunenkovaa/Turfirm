@@ -16,7 +16,7 @@
 
         <TextBlock Style="{StaticResource Title}">Путешествуй по России</TextBlock>
 
-        <Frame Name="fr_Main" Grid.Row="1"  NavigationUIVisibility="Visible">
+        <Frame Name="fr_Main" Grid.Row="1"  NavigationUIVisibility="Hidden" >
 
         </Frame>
     </Grid>
