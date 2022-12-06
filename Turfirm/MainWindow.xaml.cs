@@ -23,8 +23,9 @@ namespace Turfirm
         public MainWindow()
         {
             InitializeComponent();
-            Frame.MainFrame = fr_Main;
-            Frame.MainFrame.Navigate(new ListOfTour());
+            BD.tBE = new Entities();
+            FrameClass.MainFrame = fr_Main;
+            FrameClass.MainFrame.Navigate(new ListOfTour());
         }
     }
 }

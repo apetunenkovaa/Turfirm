@@ -8,24 +8,33 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfTour">
     <Page.Resources>
-        <BitmapImage x:Key="defaultImage" UriSource="Image\picture.png"/>
+        <BitmapImage x:Key="defaultImage"  UriSource="Image\picture.png" />
     </Page.Resources>
     <Grid>
-
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.ColumnSpan="2">
             <StackPanel>
                 <StackPanel>
-                    <TextBlock>Введите текст для поиска:</TextBlock>
+                    <TextBlock Style="{StaticResource General_t}">Введите текст для поиска:</TextBlock>
                     <GroupBox>
-                        <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"></TextBox>
+                        <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Style="{StaticResource textbox}"></TextBox>
                     </GroupBox>
                 </StackPanel>
                 <TextBlock>Выберете тип:</TextBlock>
-                <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
+                <ComboBox Name="cmbSort" >
                     <ComboBoxItem>Все типы</ComboBoxItem>
                 </ComboBox>
-                <CheckBox Name="cbPhoto" Checked="cbPhoto_Checked" Unchecked="cbPhoto_Checked">Только актуальные туры</CheckBox>
-                
+                <CheckBox Name="cbActual"  >Только актуальные туры</CheckBox>
+
+                <StackPanel HorizontalAlignment="Right">
+                    <TextBlock> Общая стоимость туров:</TextBlock>
+                    <TextBlock Name="CountTour"></TextBlock>
+                </StackPanel>
+
             </StackPanel>
 
             <ListView Name="listTour" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="500">
@@ -39,14 +48,9 @@
                         <Border Padding="5" CornerRadius="5" BorderThickness="1">
                             <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
                                 <StackPanel Background="White">
-                                    <TextBlock Text="{Binding }"/>
-                                    <TextBlock Text="{Binding PassportTable.UniqueNumber, StringFormat=Паспорт: {0}}"></TextBlock>
-                                   
-                                    <TextBlock Width="490" TextWrapping="Wrap" Name="tbCharacter" Uid="{Binding idCat}"  Loaded="tbCharacter_Loaded"></TextBlock>
-                                    <TextBlock Uid="{Binding idCat}" Name="tbMoney" Loaded="tbMoney_Loaded"></TextBlock>
-                                    <Image Width="100" Height="100" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"/>
-                                    <Button Uid="{Binding idCat}" Content="Удалить" Click="Button_Click"></Button>
-                                    <Button Uid="{Binding idCat}" Content="Редактировать" Name="btnupdate" Click="btnupdate_Click"></Button>
+                                    <TextBlock  HorizontalAlignment="Center" Text="{Binding Name}"></TextBlock>
+                                    <Image Width="200" Height="200" Source="{Binding ImagePreview,TargetNullValue={StaticResource defaultImage}}"/>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Price,StringFormat=Цена:{0} РУБ}"></TextBlock>
                                 </StackPanel>
                             </Grid>
                         </Border>

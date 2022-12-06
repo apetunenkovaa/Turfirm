@@ -22,7 +22,16 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
-        
-        
+
+        <!--стиль для text box-->
+        <Style x:Key="textbox" TargetType="TextBox">
+            
+           
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+
+
     </Application.Resources>
 </Application>

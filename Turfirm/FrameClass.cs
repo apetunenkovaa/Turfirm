@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Turfirm
 {
-    internal class Frame
+    class FrameClass
     {
         public static Frame MainFrame;
 
-        internal void Navigate(ListOfTour listOfTour)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turfirm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Путешествуй по России" Height="450" Width="800">
     <Grid Background="#445c93">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="47*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*">
-                
+
             </RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Style="{StaticResource Title}">Путешествуй по России</TextBlock>
+        <TextBlock Style="{StaticResource Title}" Grid.Column="1" HorizontalAlignment="Left"  Grid.RowSpan="2">Путешествуй по России</TextBlock>
 
-        <Frame Name="fr_Main" Grid.Row="1"  NavigationUIVisibility="Hidden" >
+        <Frame Name="fr_Main" Grid.Row="1"  NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" >
 
         </Frame>
     </Grid>

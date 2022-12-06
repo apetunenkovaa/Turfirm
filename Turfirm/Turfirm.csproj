@@ -103,7 +103,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Frame.cs" />
+    <Compile Include="FrameClass.cs" />
     <Compile Include="ListOfTour.xaml.cs">
       <DependentUpon>ListOfTour.xaml</DependentUpon>
     </Compile>
